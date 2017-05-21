@@ -15,7 +15,6 @@ class App extends Component
                     <Search/>
                 </Row>
             </Container>
-
         )
     }
 }
