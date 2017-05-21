@@ -1,3 +1,9 @@
 node_modules
 /dist
 .idea
+bundle.js
+*.ttf
+*.eot
+*.woff
+*.svg
+*.woff2
