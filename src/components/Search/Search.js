@@ -11,8 +11,12 @@ class Search extends Component
 
         this.state = {
             query: '',
-            results: []
+            total: 0,
+            totalHits: 0,
+            hits: []
         };
+
+        this.transformApiResponse = this.transformApiResponse.bind(this);
     }
 
     render() {
@@ -38,13 +42,35 @@ class Search extends Component
                         }}
                     />
                 </InputGroup>
-                <ResultList results={this.state.results} />
+                <ResultList hits={this.state.hits} />
             </div>
         )
     }
 
     queryApi(q) {
-        let result = Requests.sendQuery(q);
+        Requests.sendQuery(q, this.transformApiResponse);
+    }
+
+    transformApiResponse(err, res, body) {
+        if (err) {
+            // todo introduce better error handling
+            console.log(err);
+            return null;
+        }
+
+        let parsed = this.parseResponse(body);
+
+        this.setState({
+            total: parsed.total,
+            totalHits: parsed.totalHits,
+            hits: parsed.hits
+        });
+
+        console.log(parsed);
+    }
+
+    parseResponse(body) {
+        return JSON.parse(body)
     }
 }
 

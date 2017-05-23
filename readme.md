@@ -1,6 +1,6 @@
 # app [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
-> My superb app
+> A silly electron application that contacts the PixaBay API and downloads images from it. WIP.
 
 
 ## Dev

@@ -9,15 +9,13 @@ class Requests
         });
     }
 
-    sendQuery(q) {
+    sendQuery(q, callback) {
         let apiKey = Constants._API_KEY_;
         let apiUrl = Constants._API_URL_;
 
         this.send(apiUrl, {key: apiKey}, (err, res, body) => {
-            console.log(err,res,body);
+            callback(err, res, body)
         });
-
-        return '';
     }
 }
 

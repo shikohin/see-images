@@ -7,23 +7,19 @@ class ResultList extends Component
         super(props);
 
         this.state = {
-            results: []
+            hits: []
         };
     }
 
     render() {
-        return <div>{this.props.results.map((result, index) => {
-            return <div>Single result</div>
+        return <div>{this.props.hits.map((result, index) => {
+            return <div key={index}>Single result</div>
         })}</div>
-    }
-
-    searchForResults(q) {
-
     }
 }
 
 ResultList.propTypes = {
-    results: PropTypes.array.isRequired
+    hits: PropTypes.array.isRequired
 };
 
 export default ResultList;
